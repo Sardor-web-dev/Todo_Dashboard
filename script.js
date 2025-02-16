@@ -5,8 +5,6 @@ const viewTableBtn = document.querySelector('.view-table');
 const viewCardsBtn = document.querySelector('.view-cards');
 
 let tasks = [];
-
-// Создание модального окна с помощью createElement
 const modal = document.createElement('div');
 modal.classList.add('modal');
 
