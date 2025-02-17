@@ -44,7 +44,6 @@ modalContent.append(modalTitle, titleInput, descInput, timeInput, dateInput, sta
 modal.appendChild(modalContent);
 document.body.appendChild(modal);
 
-
 addBtn.onclick = () => {
     modal.classList.remove('hidden')
 };
@@ -68,13 +67,11 @@ addTaskBtn.onclick = () => {
     descInput.value = "";
     timeInput.value = "";
     dateInput.value = "";
-
     modal.classList.add('hidden')
 };
 
 function renderTasks() {
     taskContainer.innerHTML = "";
-
     tasks.forEach((task) => {
         taskCard.innerHTML = `
             <h3>${task.title}</h3>
