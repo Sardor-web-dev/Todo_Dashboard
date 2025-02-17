@@ -14,8 +14,10 @@ const timeInput = document.createElement('input');
 const dateInput = document.createElement('input');
 const statusSelect = document.createElement('select');
 const addTaskBtn = document.createElement('button');
+const taskCard = document.createElement("div");
 
 
+taskCard.classList.add("task-card");
 modal.classList.add('hidden')
 modal.classList.add('modal');
 modalContent.classList.add('modal-content');
@@ -74,9 +76,6 @@ function renderTasks() {
     taskContainer.innerHTML = "";
 
     tasks.forEach((task) => {
-        const taskCard = document.createElement("div");
-        taskCard.classList.add("task-card");
-
         taskCard.innerHTML = `
             <h3>${task.title}</h3>
             <p>${task.desc}</p>
