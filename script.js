@@ -1,4 +1,3 @@
-// Выносим селекторы в начало
 const addBtn = document.querySelector('.add-task-btn');
 const taskContainer = document.getElementById('task-container');
 const viewTableBtn = document.querySelector('.view-table');
@@ -48,7 +47,6 @@ addBtn.onclick = () => {
     modal.classList.remove('hidden')
 };
 
-// Добавление задачи
 addTaskBtn.onclick = () => {
     modal.classList.add('hidden')
     const title = titleInput.value;
@@ -65,7 +63,6 @@ addTaskBtn.onclick = () => {
     tasks.push({ title, desc, time, date, status });
     renderTasks();
 
-    // Очистка формы
     titleInput.value = "";
     descInput.value = "";
     timeInput.value = "";
@@ -74,7 +71,6 @@ addTaskBtn.onclick = () => {
     modal.classList.add('hidden')
 };
 
-// Функция для рендеринга задач в карточках
 function renderTasks() {
     taskContainer.innerHTML = "";
 
@@ -116,7 +112,6 @@ viewTableBtn.onclick = () => {
     `;
 };
 
-// Переключение на карточки
 viewCardsBtn.onclick = () => {
     renderTasks();
 };
