@@ -75,18 +75,19 @@
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     background: white;
     padding: 20px;
     width: 350px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: left;
 }
 
 .modal-content input, .modal-content select {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
