@@ -1,16 +1,19 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    text-align: center;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #f4f4f4;
 }
 
 .container {
     width: 80%;
     margin: 20px auto;
 }
-
+.titles{
+    display: flex;
+    gap: 15px;
+}
 .title {
     font-size: 2rem;
     font-weight: bold;
@@ -28,6 +31,8 @@ body {
 }
 
 .toggle-view {
+    display: flex;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
@@ -35,7 +40,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: center;
 }
 
 .task-card {
@@ -107,4 +111,18 @@ body {
 }
 .hidden{
     display: none;
+}
+.view-table{
+    cursor: pointer;
+    color: #007bff;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+.view-cards{
+    cursor: pointer;
+    color: #007bff;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
 }
