@@ -48,7 +48,6 @@ addBtn.onclick = () => {
 };
 
 addTaskBtn.onclick = () => {
-    modal.classList.add('hidden')
     const title = titleInput.value;
     const desc = descInput.value;
     const time = timeInput.value;
