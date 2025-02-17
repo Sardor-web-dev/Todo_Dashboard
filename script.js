@@ -6,62 +6,51 @@ const viewCardsBtn = document.querySelector('.view-cards');
 
 let tasks = [];
 
-// Создание модального окна с помощью createElement
 const modal = document.createElement('div');
-modal.classList.add('modal');
-
 const modalContent = document.createElement('div');
-modalContent.classList.add('modal-content');
-
 const modalTitle = document.createElement('h2');
-modalTitle.textContent = 'Добавить';
-
 const titleInput = document.createElement('input');
-titleInput.setAttribute('type', 'text');
-titleInput.setAttribute('placeholder', 'Заголовок');
-
 const descInput = document.createElement('input');
-descInput.setAttribute('type', 'text');
-descInput.setAttribute('placeholder', 'Описание');
-
 const timeInput = document.createElement('input');
-timeInput.setAttribute('type', 'time');
-
 const dateInput = document.createElement('input');
-dateInput.setAttribute('type', 'date');
-
 const statusSelect = document.createElement('select');
-statusSelect.innerHTML = `
-    <option value="new">Новая</option>
-    <option value="progress">В прогрессе</option>
-    <option value="done">Готово</option>
-`;
-
 const addTaskBtn = document.createElement('button');
-addTaskBtn.textContent = 'Добавить';
+
+
+modal.classList.add('hidden')
+modal.classList.add('modal');
+modalContent.classList.add('modal-content');
 addTaskBtn.classList.add('modal-btn', 'modal-add-btn');
 
-const closeBtn = document.createElement('button');
-closeBtn.textContent = 'Закрыть';
-closeBtn.classList.add('modal-btn', 'modal-close-btn');
 
-// Добавляем все элементы в модальное окно
-modalContent.append(modalTitle, titleInput, descInput, timeInput, dateInput, statusSelect, addTaskBtn, closeBtn);
+modalTitle.innerHTML = 'Добавить';
+addTaskBtn.innerHTML = 'Добавить';
+
+titleInput.setAttribute('type', 'text');
+titleInput.setAttribute('placeholder', 'Заголовок');
+descInput.setAttribute('type', 'text');
+descInput.setAttribute('placeholder', 'Описание');
+timeInput.setAttribute('type', 'time');
+dateInput.setAttribute('type', 'date');
+
+statusSelect.innerHTML = `
+    <option value="Не выполнено">New</option>
+    <option value="В прогрессе">Progress</option>
+    <option value="Готово">Done</option>
+`;
+
+modalContent.append(modalTitle, titleInput, descInput, timeInput, dateInput, statusSelect, addTaskBtn,);
 modal.appendChild(modalContent);
 document.body.appendChild(modal);
 
-// Открытие модального окна
-addBtn.onclick = () => {
-    modal.style.display = "flex";
-};
 
-// Закрытие модального окна
-closeBtn.onclick = () => {
-    modal.style.display = "none";
+addBtn.onclick = () => {
+    modal.classList.remove('hidden')
 };
 
 // Добавление задачи
 addTaskBtn.onclick = () => {
+    modal.classList.add('hidden')
     const title = titleInput.value;
     const desc = descInput.value;
     const time = timeInput.value;
@@ -82,7 +71,7 @@ addTaskBtn.onclick = () => {
     timeInput.value = "";
     dateInput.value = "";
 
-    modal.style.display = "none";
+    modal.classList.add('hidden')
 };
 
 // Функция для рендеринга задач в карточках
@@ -104,16 +93,15 @@ function renderTasks() {
     });
 }
 
-// Отображение задач в таблице
 viewTableBtn.onclick = () => {
     taskContainer.innerHTML = `
         <table class="task-table">
             <tr>
-                <th>Заголовок</th>
-                <th>Описание</th>
+                <th>Заголовок задачи</th>
+                <th>Описание задачи</th>
                 <th>Дата</th>
                 <th>Время</th>
-                <th>Статус</th>
+                <th>Выполнено</th>
             </tr>
             ${tasks.map(task => `
                 <tr>

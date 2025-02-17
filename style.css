@@ -59,7 +59,7 @@ body {
 }
 
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0; left: 0;
     width: 100%;
@@ -104,4 +104,7 @@ body {
 .modal-close-btn {
     background-color: red;
     color: white;
+}
+.hidden{
+    display: none;
 }
