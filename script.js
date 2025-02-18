@@ -6,7 +6,6 @@ const viewCardsBtn = document.querySelector('.view-cards');
 let tasks = JSON.parse(localStorage.getItem('myTasks')) || [];
 console.log(tasks);
 
-
 const modal = document.createElement('div');
 const modalContent = document.createElement('div');
 const modalTitle = document.createElement('h2');
@@ -18,13 +17,11 @@ const statusSelect = document.createElement('select');
 const addTaskBtn = document.createElement('button');
 const taskCard = document.createElement("div");
 
-
 taskCard.classList.add("task-card");
 modal.classList.add('hidden')
 modal.classList.add('modal');
 modalContent.classList.add('modal-content');
 addTaskBtn.classList.add('modal-btn', 'modal-add-btn');
-
 
 modalTitle.innerHTML = 'Добавить';
 addTaskBtn.innerHTML = 'Добавить';
@@ -93,7 +90,6 @@ function renderTasks() {
         taskContainer.appendChild(taskCard);
     });
 }
-
 
 
 viewTableBtn.onclick = () => {
