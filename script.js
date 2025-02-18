@@ -65,7 +65,7 @@ addTaskBtn.onclick = () => {
 
     tasks.push({ title, desc, time, date, status });
     localStorage.setItem('myTasks', JSON.stringify(tasks));
-    renderTasks();
+    reload();
 
     titleInput.value = "";
     descInput.value = "";
@@ -74,7 +74,7 @@ addTaskBtn.onclick = () => {
     modal.classList.add('hidden')
 };
 
-function renderTasks() {
+function reload() {
     taskContainer.innerHTML = "";
     tasks.forEach((task) => {
         const taskCard = document.createElement("div"); 
@@ -117,6 +117,6 @@ viewTableBtn.onclick = () => {
 };
 
 viewCardsBtn.onclick = () => {
-    renderTasks();
+    reload();
 };
-renderTasks();
+reload();
