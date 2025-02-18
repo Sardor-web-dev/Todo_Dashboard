@@ -3,7 +3,9 @@ const taskContainer = document.getElementById('task-container');
 const viewTableBtn = document.querySelector('.view-table');
 const viewCardsBtn = document.querySelector('.view-cards');
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem('myTasks')) || [];
+console.log(tasks);
+
 
 const modal = document.createElement('div');
 const modalContent = document.createElement('div');
@@ -47,6 +49,11 @@ document.body.appendChild(modal);
 addBtn.onclick = () => {
     modal.classList.remove('hidden')
 };
+modal.onclick = (event) => {
+    if (event.target === modal) {
+        modal.classList.add('hidden');
+    }
+};
 
 addTaskBtn.onclick = () => {
     const title = titleInput.value;
@@ -54,13 +61,13 @@ addTaskBtn.onclick = () => {
     const time = timeInput.value;
     const date = dateInput.value;
     const status = statusSelect.value;
-
     if (!title || !desc || !time || !date) {
         alert("Заполните все поля!");
         return;
     }
 
     tasks.push({ title, desc, time, date, status });
+    localStorage.setItem('myTasks', JSON.stringify(tasks));
     renderTasks();
 
     titleInput.value = "";
@@ -73,6 +80,9 @@ addTaskBtn.onclick = () => {
 function renderTasks() {
     taskContainer.innerHTML = "";
     tasks.forEach((task) => {
+        const taskCard = document.createElement("div"); 
+        taskCard.classList.add("task-card");
+
         taskCard.innerHTML = `
             <h3>${task.title}</h3>
             <p>${task.desc}</p>
@@ -84,7 +94,10 @@ function renderTasks() {
     });
 }
 
+
+
 viewTableBtn.onclick = () => {
+    taskContainer.innerHTML = '';
     taskContainer.innerHTML = `
         <table class="task-table">
             <tr>
@@ -110,3 +123,4 @@ viewTableBtn.onclick = () => {
 viewCardsBtn.onclick = () => {
     renderTasks();
 };
+renderTasks();
