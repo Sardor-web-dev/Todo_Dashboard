@@ -1,27 +1,60 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="titles">
-            <h1 class="title">Dashboard</h1>
-            <button class="add-task-btn">Добавить задачу</button>
+    <main>
+        <div class="main">
+            <h1>Dashboard</h1>
+            <button class="add-task">Добавить задачу</button>
         </div>
-
-        <div class="toggle-view">
+        <div class="view-type">
             <span>Показать задачи как:</span>
-            <button class="view-table">Таблица</button>
-            <button class="view-cards">Плитка</button>
+            <button class="showTable active">Таблица</button>
+            <button class="showDivs">Плитка</button>
         </div>
-
-        <div id="task-container" class="grid-view"></div>
+        <div class="container">
+            <table class="table active">
+                <thead>
+                    <tr>
+                        <th>Заголовок задачи</th>
+                        <th>Описание задачи</th>
+                        <th>Дата</th>
+                        <th>Время</th>
+                        <th>Выполнено</th>
+                    </tr>
+                </thead>
+    
+                <tbody></tbody>
+            </table>
+        </div>
+    
+        <div class="divs active"></div>
+    </main>
+    <div class="modal">
+        <div class="modal_content">
+            <div class="x">
+                <img class="close" src="./close.png" alt="">
+            </div>
+            <form name="form">
+                <input type="text" name="title" placeholder="title">
+                <input type="text" name="desc" placeholder="description">
+                <input type="date" name="date" placeholder="date">
+                <input type="time" name="time" placeholder="time">
+                <button id="create">Create</button>
+            </form>
+        </div>
     </div>
-
-    <script src="script.js"></script>
+    <script src="./utils.js"></script>
+    <script src="./arr.js"></script>
+    <script src="./draw.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>
