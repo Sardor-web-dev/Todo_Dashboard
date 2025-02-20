@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -30,31 +30,41 @@
                         <th>Выполнено</th>
                     </tr>
                 </thead>
-    
+
                 <tbody></tbody>
             </table>
         </div>
-    
+
         <div class="divs active"></div>
     </main>
     <div class="modal">
-        <div class="modal_content">
-            <div class="x">
-                <img class="close" src="./close.png" alt="">
-            </div>
-            <form name="form">
-                <input type="text" name="title" placeholder="title">
-                <input type="text" name="desc" placeholder="description">
-                <input type="date" name="date" placeholder="date">
-                <input type="time" name="time" placeholder="time">
-                <button id="create">Create</button>
+        <div class="modal__content">
+            <span class="close"><svg width="20" height="20" viewBox="0 0 26 26" fill="black"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 2L2 24" stroke="black" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M2 2L24 24" stroke="black" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </span>
+            <form name="taskForm">
+                <input type="text" name="title" placeholder="Title" required>
+                <input type="text" name="desc" placeholder="Description" required>
+                <input type="date" name="date" placeholder="Date" required>
+                <input type="time" name="time" placeholder="Time" required>
+                <select name="isDone">
+                    <option value="Готово">Готово</option>
+                    <option value="В процессе">В процессе</option>
+                    <option value="Не выполнено">Не выполнено</option>
+                </select>
+                <button>Create</button>
             </form>
         </div>
     </div>
-    <script src="./utils.js"></script>
-    <script src="./arr.js"></script>
-    <script src="./draw.js"></script>
-    <script src="./script.js"></script>
+    <script src="./JS/arr.js"></script>
+    <script src="./JS/utils.js"></script>
+    <script src="./JS/draw.js"></script>
+    <script src="./JS/script.js"></script>
 </body>
 
 </html>

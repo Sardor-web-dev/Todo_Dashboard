@@ -28,13 +28,13 @@ function drawTable(arr) {
 
         tr.append(title, desc, date, time, isDone);
         tableBody.append(tr);
-        table.append(tableBody);
     }
+    table.append(tableBody);
 }
 
 function drawDivs(arr) {
     divs.innerHTML = '';
-    for(let item of arr) {
+    for (let item of arr) {
         const task = document.createElement('div');
         const title = document.createElement('h3');
         const desc = document.createElement('p');
@@ -52,10 +52,30 @@ function drawDivs(arr) {
         timeP.textContent = item.time;
         isDone.textContent = item.isDone;
 
+        if (item.isDone === 'Готово') {
+            isDone.classList.add('done');
+        } else if (item.isDone === 'В процессе') {
+            isDone.classList.add('in-progress');
+        } else if (item.isDone === 'Не выполнено') {
+            isDone.classList.add('not-done');
+        }
+
         time.append(date, timeP);
         task.append(title, desc, time, isDone);
         divs.appendChild(task);
     }
 }
 
-drawTable(data);
+function draw(arr) {
+    const tab = localStorage.getItem('tab') || 'table';
+
+    if (tab === 'table') {
+        showTab(true);
+        drawTable(arr);
+    } else {
+        showTab(false);
+        drawDivs(arr);
+    }
+}
+
+draw(data);
