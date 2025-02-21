@@ -146,8 +146,8 @@ function editTask(index) {
     addTaskModal.open();
 
 
-    taskForm.onsubmit = (ev) => {
-        ev.preventDefault();
+    taskForm.onsubmit = (e) => {
+        e.preventDefault();
         const fm = new FormData(taskForm);
         const updatedTask = {};
         fm.forEach((value, key) => {
