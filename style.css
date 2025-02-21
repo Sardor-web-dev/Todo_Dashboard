@@ -269,3 +269,21 @@ form {
 .in-progress {
     color: #007FFF;
 }
+.delete svg{
+    width: 20px;
+    height: 20px;
+}
+.delete{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.change svg{
+    width: 20px;
+    height: 20px;
+}
+.change{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
