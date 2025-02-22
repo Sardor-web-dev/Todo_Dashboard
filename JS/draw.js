@@ -125,11 +125,10 @@ draw(data);
 
 
 function deleteTask(index) {
-    if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
         data.splice(index, 1);
         localStorage.setItem('tasks', JSON.stringify(data));
         draw(data);
-    }
+    
 }
 
 
